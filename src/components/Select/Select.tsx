@@ -18,6 +18,8 @@ export type Props = {
   defaultValue?: SelectOption;
   /** The name Attribute is used to specify a name to reference the form-data */
   name?: string;
+  /** The value is used when the component is controlled */
+  value?: SelectOption;
   /** If the select is going to be disabled or not */
   disabled?: boolean;
   /** if the select is loading data */
@@ -65,6 +67,7 @@ const Select: React.FC<Props> = ({
   label,
   onChange = () => {},
   name = '',
+  value,
 }) => {
   const theme = useTheme();
 
@@ -160,6 +163,7 @@ const Select: React.FC<Props> = ({
         options={options}
         placeholder={false}
         onChange={onChange}
+        value={value}
         components={{
           Control,
         }}
