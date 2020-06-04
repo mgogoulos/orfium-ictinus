@@ -7,6 +7,7 @@ import useTheme from 'hooks/useTheme';
 import { generateTestDataId } from 'utils/helpers';
 import { EventProps } from 'utils/common';
 
+export type AllowedAlignement = 'left' | 'right';
 export type Props = {
   /** Type indicating the type of the button */
   type?: AcceptedColorComponentTypes;
@@ -19,7 +20,7 @@ export type Props = {
   /** Define if the button is in disabled state */
   disabled?: boolean;
   /** Define the position of the icon - left or right - default to left */
-  iconAlign?: 'left' | 'right';
+  iconAlign?: AllowedAlignement;
 };
 
 export type TestProps = {

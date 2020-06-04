@@ -1,5 +1,5 @@
 import { backgroundPickerBasedOnType, colorPickerBasedOnType } from 'utils/themeFunctions';
-import { Props } from 'components/Button/Button';
+import { AllowedAlignement, Props } from 'components/Button/Button';
 import { RequiredProperties } from 'utils/common';
 import { Theme } from 'theme';
 import { FlexDirectionProperty } from 'csstype';
@@ -79,9 +79,11 @@ export const iconStyle = ({
   iconAlign,
 }: RequiredProperties<Props & { hasChildren: boolean }>) => (theme: Theme) => {
   const margin = size === 'sm' ? theme.spacing.sm : theme.spacing.md;
+  const getMargin = (alignPosition: AllowedAlignement) =>
+    iconAlign === alignPosition ? margin : theme.spacing.sm;
 
   return {
-    marginLeft: iconAlign === 'left' ? margin : theme.spacing.sm,
-    marginRight: iconAlign === 'right' ? margin : theme.spacing.sm,
+    marginLeft: getMargin('left'),
+    marginRight: getMargin('right'),
   };
 };
